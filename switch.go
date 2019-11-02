@@ -5,6 +5,7 @@ import (
 	"runtime"
 	"time"
 )
+
 // 如果使用.(type)查询类型的变量不是interface{}类型，则在编译时会报错
 // cannot type switch on non-interface value a (type string)
 // 如果在switch以外地方使用.(type)，则在编译时会提示如下错误：
@@ -12,18 +13,18 @@ import (
 // 使用type进行类型查询时，只能在switch中使用，且使用类型查询的变量类型必须是interface{}
 // 使用interface{}仍然是类型安全的,
 func MyPrintf(args ...interface{}) {
-  for _, arg := range args {
-    switch arg.(type) {
-    case int:
-       fmt.Println(arg, "is an int value.")
-    case string:
-       fmt.Println(arg, "is a string value.")
-    case int64:
-       fmt.Println(arg, "is an int64 value.")
-    default:
-       fmt.Println(arg, "is an unknown type.")
-    }
-  }
+	for _, arg := range args {
+		switch arg.(type) {
+		case int:
+			fmt.Println(arg, "is an int value.")
+		case string:
+			fmt.Println(arg, "is a string value.")
+		case int64:
+			fmt.Println(arg, "is an int64 value.")
+		default:
+			fmt.Println(arg, "is an unknown type.")
+		}
+	}
 }
 
 func main() {
@@ -32,9 +33,9 @@ func main() {
 	var v3 string = "hello"
 	var v4 float32 = 1.234
 	var v5 string = "test"
-	MyPrintf(v1, v2, v3,  v4,v5)
-        
-        fmt.Println(runtime.GOOS) 
+	MyPrintf(v1, v2, v3, v4, v5)
+
+	fmt.Println(runtime.GOOS)
 	fmt.Print("Go runs on ")
 	os := runtime.GOOS
 	switch os {
@@ -48,7 +49,7 @@ func main() {
 		fmt.Printf("%s.", os)
 	}
 
-	fmt.Printf("When's Saturday?%s",time.Saturday)
+	fmt.Printf("When's Saturday?%s", time.Saturday)
 	fmt.Println()
 	today := time.Now().Weekday()
 	fmt.Println(today)

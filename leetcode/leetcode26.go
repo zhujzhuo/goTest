@@ -30,8 +30,10 @@ import "fmt"
 
 /*
 数组完成排序后，我们可以放置两个指针i和 j，其中i 是慢指针,而j是快指针。只要nums[i] = nums[j]，我们就增加j以跳过重复项。
-当我们遇到 nums[j] != nums[i]时，跳过重复项的运行已经结束，因此我们必须把nums[j]的值复制到nums[i+1]。然后递增i，接着我们将再次重复相同的过程，直到j 到达数组的末尾为止。
+当我们遇到 nums[j] != nums[i]时，跳过重复项的运行已经结束，因此我们必须把nums[j]的值复制到nums[i+1]。然后递增i，
+接着我们将再次重复相同的过程，直到j 到达数组的末尾为止。
 */
+
 func removeDuplicates(nums []int) int {
 	if len(nums) == 0 || len(nums) == 1 {
 		return len(nums)
@@ -46,13 +48,33 @@ func removeDuplicates(nums []int) int {
 	return i + 1
 }
 
+/*
+func removeDuplicates(nums []int) int {
+	idx := 0
+	for i, v := range nums {
+		if i == 0 || v == nums[idx] {
+			continue
+		}
+		if v < nums[idx] {
+			break
+		}
+		nums[idx+1] = v
+		idx++
+	}
+	return idx + 1
+}
+*/
 func main() {
 
 	var nums1 []int = []int{1, 2, 3, 4, 4, 4, 5, 7, 7, 8, 9}
 	var nums2 []int = []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	var nums3 []int = []int{0, 1, 1, 2, 2, 3, 4, 4, 5}
 	fmt.Println(removeDuplicates(nums1))
 	fmt.Println(nums1)
 
 	fmt.Println(removeDuplicates(nums2))
 	fmt.Println(nums2)
+
+	fmt.Println(removeDuplicates(nums3))
+	fmt.Println(nums3)
 }

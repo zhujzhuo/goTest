@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-//	"reflect"
+	"reflect"
 )
 
 func reverseString(s string) string {
@@ -13,7 +13,6 @@ func reverseString(s string) string {
 	return string(runes)
 }
 
-/*
 //字符串反转测试
 func main() {
 	var str1 string = "abcdefg"
@@ -29,8 +28,8 @@ func main() {
 	fmt.Println(string(x[0]))
 	fmt.Println(string(x))
 }
-*/
 
+/*
 //map 的赋值和遍历
 func main() {
         var mapstring map[string] int
@@ -44,3 +43,4 @@ func main() {
 		fmt.Printf("%s:%d\n", key, value)
 	}
 }
+*/

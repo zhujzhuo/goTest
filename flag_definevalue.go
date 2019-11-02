@@ -1,3 +1,12 @@
+/*
+go run  flag_definevalue.go  -slice="java,go,php     scr"  -testint=3307  -flagname=123
+flag.Var
+flag.Intvar
+flag.Int
+
+go run  flag_definevalue.go  -slice="java,go,php     scr"  -testint=3307  -flagname=123 -name="test a string var"
+
+*/
 package main
 
 import (
@@ -37,18 +46,28 @@ func (s *sliceValue) String() string {
 /*
 可执行文件名 -slice="java,go"  最后将输出[java,go]
 可执行文件名 最后将输出[default is me]
- */
-
+*/
 /*
 可以通过如下方式定义该 flagl类型：
+
 flag.Var(&flagVal, "name", "help message for flagname")
 */
 
 func main(){
     var languages []string
+    var flagVal []string
+    var Intv int
     flag.Var(newSliceValue([]string{}, &languages), "slice", "I like programming `languages`")
+    flag.Var(newSliceValue([]string{}, &flagVal), "name", "help message for flagname")
+    
+    ip := flag.Int("flagname", 1234, "help message for flagname")  //with type *int
+    flag.IntVar(&Intv, "testint",3306,"test int var") //&Intv
     flag.Parse()
+
 
     //打印结果slice接收到的值
     fmt.Println(languages)
+    fmt.Println(Intv)
+    fmt.Println(flagVal)
+    fmt.Println(*ip)
 }

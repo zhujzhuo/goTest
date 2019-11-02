@@ -39,6 +39,22 @@ func deleteDuplicates(head *ListNode) *ListNode {
    return res 
 }
 
+/*
+func deleteDuplicates(head *ListNode) *ListNode {
+    if head == nil {
+        return nil
+    }
+    cur := head
+    for cur.Next != nil {
+        if cur.Val != cur.Next.Val {
+            cur = cur.Next
+        } else {
+            cur.Next = cur.Next.Next
+        }
+    }
+    return head
+}
+*/
 func main(){
         var res1 *ListNode
         //创建有序链表1——>2——>2——>3——>3

@@ -34,10 +34,12 @@ import "fmt"
  */
 
 type TreeNode struct {
-     Val int
-     Left *TreeNode
-     Right *TreeNode
- }
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+/*
 //将root赋值给两个树，递归比对子节点的左侧（右侧）和另外一个子节点的右侧（左侧）相同与否
 func isSymmetric(root *TreeNode) bool {
      return isMirror(root,root)
@@ -55,25 +57,46 @@ func isMirror(p *TreeNode,q *TreeNode) bool {
 		return false
 	}
 }
+*/
+func isSymmetric(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+	if root.Left == nil && root.Right == nil {
+		return true
+	}
+	return isSame(root.Left, root.Right)
+
+}
+
+func isSame(p, q *TreeNode) bool {
+	if p == nil && q == nil {
+		return true
+	}
+	if q != nil && p != nil && p.Val == q.Val {
+		return isSame(p.Left, q.Right) && isSame(p.Right, q.Left)
+	} else {
+		return false
+	}
+}
 
 func main() {
-       var n3 = &TreeNode{2,nil,nil}
-       var n2 = &TreeNode{2,nil,nil}
-       var t1 = TreeNode{1,n2,n3}
+	var n3 = &TreeNode{2, nil, nil}
+	var n2 = &TreeNode{2, nil, nil}
+	var t1 = TreeNode{1, n2, n3}
 
-       var m7 = &TreeNode{4,nil,nil}
-       var m6 = &TreeNode{3,nil,nil}
-       var m5 = &TreeNode{3,nil,nil}
-       var m4 = &TreeNode{4,nil,nil}
-       var m3 = &TreeNode{2,m6,m7}
-       var m2 = &TreeNode{2,m4,m5}
-       var t2 = TreeNode{1,m2,m3}
+	var m7 = &TreeNode{4, nil, nil}
+	var m6 = &TreeNode{3, nil, nil}
+	var m5 = &TreeNode{3, nil, nil}
+	var m4 = &TreeNode{4, nil, nil}
+	var m3 = &TreeNode{2, m6, m7}
+	var m2 = &TreeNode{2, m4, m5}
+	var t2 = TreeNode{1, m2, m3}
 
-       var o2 = &TreeNode{2,nil,nil}
-       var t3 = TreeNode{1,o2,nil}
+	var o2 = &TreeNode{2, nil, nil}
+	var t3 = TreeNode{1, o2, nil}
 
-
-       fmt.Println(isSymmetric(&t1)) //true
-       fmt.Println(isSymmetric(&t2)) //true
-       fmt.Println(isSymmetric(&t3)) //false
+	fmt.Println(isSymmetric(&t1)) //true
+	fmt.Println(isSymmetric(&t2)) //true
+	fmt.Println(isSymmetric(&t3)) //false
 }

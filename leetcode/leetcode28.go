@@ -18,8 +18,12 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	// "strings"
+)
 
+//查询办法是遍历整个字符串，如果从某一个字符i开始+len（目标字符长度）和目标字符串相等，则返回i值即可
 func strStr(haystack string, needle string) int {
 	if needle == "" {
 		return 0
@@ -29,24 +33,38 @@ func strStr(haystack string, needle string) int {
 	if hs_ln < nd_ln {
 		return -1
 	}
-        //字符串包含判断，判断i到i+子串长度的串是否和子串相等
-	for i := 0; i <= hs_ln-nd_ln; i++ { 
+	//字符串包含判断，判断i到i+子串长度的串是否和子串相等
+	for i := 0; i <= hs_ln-nd_ln; i++ {
 		if haystack[i:i+nd_ln] == needle {
 			return i
 		}
 	}
-        return -1
+	return -1
 }
+
+/*
+func strStr(haystack string, needle string) int {
+
+	result := strings.Index(haystack, needle)
+	if result >= 0 {
+		prefix := []byte(haystack)[0:result]
+		res := []rune(string(prefix))
+		result = len(res)
+	}
+	return result
+}
+*/
+
 func main() {
 	var haystack = "hello"
 	var needle = "ll"
 	fmt.Println(strStr(haystack, needle))
 
-        var str1 string = "hel"
-        var str2 string = ""
-        fmt.Println(strStr(str1,str2))
-        
-        var str3 string = "helhytg"
-        var str4 string = "hytg"
-        fmt.Println(strStr(str3,str4))
+	var str1 string = "hel"
+	var str2 string = ""
+	fmt.Println(strStr(str1, str2))
+
+	var str3 string = "helhytg"
+	var str4 string = "hytg"
+	fmt.Println(strStr(str3, str4))
 }

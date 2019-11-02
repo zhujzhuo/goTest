@@ -54,5 +54,62 @@ func addBinary(a string, b string) string {
 }
 
 func main() {
-
+     var  a  string = "1011"
+     var  b  string = "1011"
+     var  c  string = "1000"
+     fmt.Println(addBinary(a,b))   //10110
+     fmt.Println(addBinary(a,c))   //10011
 }
+
+/*
+
+func addBinary(a string, b string) string {
+    result := make([]byte, 0, len(a))
+    var addi byte = '0'
+    i := len(a)-1
+    j := len(b)-1
+    for ; i >= 0 && j >= 0; {
+        c := a[i]+b[j]+addi-'0'-'0'
+        if c >= '2'{
+            c = c - '2' + '0'
+            addi = '1'
+        } else {
+            addi = '0'
+        }
+        result = append(result, c)
+        i--
+        j--
+    }
+    for i >= 0 {
+        c := a[i] + addi -'0'
+        if c >= '2'{
+            c = c - '2' + '0'
+            addi = '1'
+        } else {
+            addi = '0'
+        }
+        result = append(result, c)
+        i--
+    }
+    for j >= 0 {
+        c := b[j] + addi -'0'
+        if c >= '2'{
+            c = c - '2' + '0'
+            addi = '1'
+        } else {
+            addi = '0'
+        }
+        result = append(result, c)
+        j--
+    }
+    if addi > '0' {
+        result = append(result, addi)
+    }
+    r := make([]byte, 0, len(result))
+    for index := len(result)-1; index >= 0; index-- {
+        r = append(r, result[index])
+    }
+    return string(r)
+}
+    
+*/

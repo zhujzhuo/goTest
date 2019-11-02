@@ -14,10 +14,17 @@ package main
 import "fmt"
 
 /*
+动态规划
 定义一个函数f(n)，以第n个数为结束点的子数列的最大和，存在一个递推关系f(n) = max(f(n-1) + nums[n],f(n-1));
 将这些最大和保存下来后，取最大的那个就是最大子数组和。因为最大连续子数组等价于 最大的以n个数为结束点的子数列和
+
+很多动态规划算法非常像数学中的递推。我们如果能找到一个合适的递推公式，就能很容易的解决问题。
+我们用dp[n]表示以第n个数结尾的最大连续子序列的和，于是存在以下递推公式：
+dp[n] = max(0, dp[n-1]) + num[n]
+
 */
 
+/*
 func maxSubArray(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -40,10 +47,26 @@ func maxSubArray(nums []int) int {
 	}
 	return res
 }
+*/
+
+func maxSubArray(nums []int) int {
+    maxSubSum, sum := nums[0], 0
+    for i := 0; i < len(nums); i++ {
+        if sum > 0 {
+            sum += nums[i]
+        } else {
+            sum = nums[i]
+        }
+        if sum > maxSubSum {
+            maxSubSum = sum
+        }
+    }
+    return maxSubSum
+}
 
 func main() {
 	var nums []int = []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
-	var nums2 []int = []int{-2, -3, -1, -5}
+	var nums2 []int = []int{-2, -3, -1, -5,0,0}
 	fmt.Println(maxSubArray(nums))
 	fmt.Println(maxSubArray(nums2))
 }

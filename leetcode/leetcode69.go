@@ -39,3 +39,19 @@ func main(){
      fmt.Println(mySqrt(num4))
      fmt.Println(mySqrt(num5))
 }
+
+/*
+func mySqrt(x int) int {
+	if x <= 1 {
+		return x
+	}
+
+	r := x
+        //r^r 大于x，则重新赋值r， r = (r+x/r)/2  =>  2r=r+x/r => r=x/r
+	for ; r > x/r; {
+		r = (r+x/r)/2
+	}
+
+	return r
+}
+*/

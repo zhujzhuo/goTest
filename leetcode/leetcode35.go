@@ -25,7 +25,7 @@ package main
 import "fmt"
 
 //最好是二分查找,后面实现
-
+/*
 func searchInsert(nums []int, target int) int {
 	if len(nums) == 0 {
 		return -1
@@ -43,15 +43,43 @@ func searchInsert(nums []int, target int) int {
 	}
         return index
 }
+*/
+
+//二分查找
+func searchInsert(nums []int, target int) int {
+	l := 0
+	r := len(nums)
+	for l <= r {
+		m := l + (r-l)>>1
+		if nums[m] == target {
+			return m
+		} else if nums[m] < target {
+			if m+1 >= r || nums[m+1] > target {
+				return m + 1
+			} else {
+				l = m + 1
+			}
+		} else { //nums[m] > target
+			if m == 0 || nums[m-1] < target {
+				return m
+			} else {
+				r = m - 1
+			}
+		}
+	}
+	return 0
+}
 
 func main() {
-	var nums []int = []int{1, 3, 5, 6}
+	var nums []int = []int{1, 3, 5, 6, 7, 9, 10}
 	var t1 int = 5
 	var t2 int = 2
 	var t3 int = 7
 	var t4 int = 0
+	var t5 int = 12
 	fmt.Println(searchInsert(nums, t1))
 	fmt.Println(searchInsert(nums, t2))
 	fmt.Println(searchInsert(nums, t3))
 	fmt.Println(searchInsert(nums, t4))
+	fmt.Println(searchInsert(nums, t5))
 }

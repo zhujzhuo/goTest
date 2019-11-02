@@ -1,0 +1,119 @@
+2019-03-21T15:26:27.720+0800	info	DefaultLogger init success
+2019-03-21T15:26:27.721+0800	info	test log 0	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 0	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 0	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:26:27.721+0800	info	test log 1	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 1	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 1	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:26:27.721+0800	info	test log 2	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 2	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 2	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:26:27.721+0800	info	test log 3	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 3	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 3	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:26:27.721+0800	info	test log 4	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 4	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 4	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:26:27.721+0800	info	test log 5	{"line": 47}
+2019-03-21T15:26:27.721+0800	info	Info log 5	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:26:27.721+0800	warn	Info log 5	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.892+0800	INFO	DefaultLogger init success
+2019-03-21T15:42:43.893+0800	INFO	test log 0	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 0	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 0	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 0	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.893+0800	INFO	test log 1	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 1	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 1	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 1	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.893+0800	INFO	test log 2	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 2	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 2	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 2	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.893+0800	INFO	test log 3	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 3	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 3	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 3	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.893+0800	INFO	test log 4	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 4	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 4	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 4	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:42:43.893+0800	INFO	test log 5	{"line": 47}
+2019-03-21T15:42:43.893+0800	DEBUG	debug log 5	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:42:43.893+0800	INFO	Info log 5	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:42:43.893+0800	WARN	Info log 5	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.212+0800	INFO	goTest/zap_exercise.go:50	DefaultLogger init success
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:74	test log 0	{"line": 47}
+2019-03-21T15:47:24.213+0800	DEBUG	goTest/zap_exercise.go:75	debug log 0	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:76	Info log 0	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.213+0800	WARN	goTest/zap_exercise.go:77	Info log 0	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:74	test log 1	{"line": 47}
+2019-03-21T15:47:24.213+0800	DEBUG	goTest/zap_exercise.go:75	debug log 1	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:76	Info log 1	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.213+0800	WARN	goTest/zap_exercise.go:77	Info log 1	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:74	test log 2	{"line": 47}
+2019-03-21T15:47:24.213+0800	DEBUG	goTest/zap_exercise.go:75	debug log 2	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:76	Info log 2	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.213+0800	WARN	goTest/zap_exercise.go:77	Info log 2	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:74	test log 3	{"line": 47}
+2019-03-21T15:47:24.213+0800	DEBUG	goTest/zap_exercise.go:75	debug log 3	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:76	Info log 3	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.213+0800	WARN	goTest/zap_exercise.go:77	Info log 3	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:74	test log 4	{"line": 47}
+2019-03-21T15:47:24.213+0800	DEBUG	goTest/zap_exercise.go:75	debug log 4	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.213+0800	INFO	goTest/zap_exercise.go:76	Info log 4	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.214+0800	WARN	goTest/zap_exercise.go:77	Info log 4	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T15:47:24.214+0800	INFO	goTest/zap_exercise.go:74	test log 5	{"line": 47}
+2019-03-21T15:47:24.214+0800	DEBUG	goTest/zap_exercise.go:75	debug log 5	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T15:47:24.214+0800	INFO	goTest/zap_exercise.go:76	Info log 5	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T15:47:24.214+0800	WARN	goTest/zap_exercise.go:77	Info log 5	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:16:25.788+0800	info	goTest/zap_exercise.go:73	DefaultLogger init success
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	test log 0{line 11 47  <nil>}
+2019-03-21T16:16:25.789+0800	debug	runtime/proc.go:200	debug log 0{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	Info log 0{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.789+0800	warn	runtime/proc.go:200	Info log 0{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	test log 1{line 11 47  <nil>}
+2019-03-21T16:16:25.789+0800	debug	runtime/proc.go:200	debug log 1{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	Info log 1{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.789+0800	warn	runtime/proc.go:200	Info log 1{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	test log 2{line 11 47  <nil>}
+2019-03-21T16:16:25.789+0800	debug	runtime/proc.go:200	debug log 2{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	Info log 2{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.789+0800	warn	runtime/proc.go:200	Info log 2{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	test log 3{line 11 47  <nil>}
+2019-03-21T16:16:25.789+0800	debug	runtime/proc.go:200	debug log 3{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	Info log 3{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.789+0800	warn	runtime/proc.go:200	Info log 3{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:16:25.789+0800	info	runtime/proc.go:200	test log 4{line 11 47  <nil>}
+2019-03-21T16:16:25.790+0800	debug	runtime/proc.go:200	debug log 4{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.790+0800	info	runtime/proc.go:200	Info log 4{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.790+0800	warn	runtime/proc.go:200	Info log 4{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:16:25.790+0800	info	runtime/proc.go:200	test log 5{line 11 47  <nil>}
+2019-03-21T16:16:25.790+0800	debug	runtime/proc.go:200	debug log 5{level 5 0  [123 34 110 97 109 101 34 58 34 120 105 97 111 109 105 110 103 34 44 34 97 103 101 34 58 49 50 125]}
+2019-03-21T16:16:25.790+0800	info	runtime/proc.go:200	Info log 5{level 15 0 {"a":"4","b":"5"} <nil>}
+2019-03-21T16:16:25.790+0800	warn	runtime/proc.go:200	Info log 5{level 15 0 {"a":"7","b":"8"} <nil>}
+2019-03-21T16:18:43.903+0800	info	goTest/zap_exercise.go:70	DefaultLogger init success
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	test log 0	{"line": 47}
+2019-03-21T16:18:43.904+0800	debug	runtime/proc.go:200	debug log 0	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	Info log 0	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.904+0800	warn	runtime/proc.go:200	Info log 0	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	test log 1	{"line": 47}
+2019-03-21T16:18:43.904+0800	debug	runtime/proc.go:200	debug log 1	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	Info log 1	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.904+0800	warn	runtime/proc.go:200	Info log 1	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	test log 2	{"line": 47}
+2019-03-21T16:18:43.904+0800	debug	runtime/proc.go:200	debug log 2	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	Info log 2	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.904+0800	warn	runtime/proc.go:200	Info log 2	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:18:43.904+0800	info	runtime/proc.go:200	test log 3	{"line": 47}
+2019-03-21T16:18:43.905+0800	debug	runtime/proc.go:200	debug log 3	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.905+0800	info	runtime/proc.go:200	Info log 3	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.905+0800	warn	runtime/proc.go:200	Info log 3	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:18:43.905+0800	info	runtime/proc.go:200	test log 4	{"line": 47}
+2019-03-21T16:18:43.905+0800	debug	runtime/proc.go:200	debug log 4	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.905+0800	info	runtime/proc.go:200	Info log 4	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.905+0800	warn	runtime/proc.go:200	Info log 4	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}
+2019-03-21T16:18:43.905+0800	info	runtime/proc.go:200	test log 5	{"line": 47}
+2019-03-21T16:18:43.905+0800	debug	runtime/proc.go:200	debug log 5	{"level": "{\"name\":\"xiaoming\",\"age\":12}"}
+2019-03-21T16:18:43.905+0800	info	runtime/proc.go:200	Info log 5	{"level": "{\"a\":\"4\",\"b\":\"5\"}"}
+2019-03-21T16:18:43.905+0800	warn	runtime/proc.go:200	Info log 5	{"level": "{\"a\":\"7\",\"b\":\"8\"}"}

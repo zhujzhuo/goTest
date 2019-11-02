@@ -23,7 +23,7 @@ func main() {
 	}
 	fmt.Println()
 	copy(slice2, slice1) // 只会复制slice1的前3个元素到slice2中
-        fmt.Println("======")
+	fmt.Println("======")
 	for _, el := range slice2 {
 		fmt.Print(el, " ")
 	}
@@ -46,7 +46,7 @@ func main() {
 	p := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println("p ==", p)
 	fmt.Println("p[1:4] ==", p[1:4]) //显示 3 5 7
-	fmt.Println("p[:1] ==", p[:1]) //显示 2
+	fmt.Println("p[:1] ==", p[:1])   //显示 2
 
 	// 省略下标代表从 0 开始
 	fmt.Println("p[:3] ==", p[:3])

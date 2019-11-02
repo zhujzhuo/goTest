@@ -19,6 +19,7 @@ func main() {
 	sum2 := 1
 	//可以省略1  3 条件
 	for ; sum2 < 1000; {
+                fmt.Println(sum2)
 		sum2 += sum2
 	}
 	fmt.Println(sum2)

@@ -42,29 +42,34 @@ func isValid(s string) bool {
 	if len(s)%2 != 0 {
 		return false
 	}
-        // 在go中 '[' '}' ')' 等不能按照string处理，需要按照byte处理,使用单引号
-        // 三种初始化map的方法
+	// 在go中 '[' '}' ')' 等不能按照string处理，需要按照byte处理,使用单引号
+	// 三种初始化map的方法
 	//m := make(map[byte]byte)
 	//m['('] = ')'
 	//m['['] = ']'
 	//m['{'] = '}'
-        var m = map[byte]byte{'(':')','{':'}','[':']'}
-        //m := map[byte]byte{'(':')','{':'}','[':']'}
+	var m = map[byte]byte{'(': ')', '{': '}', '[': ']'}
+	//m := map[byte]byte{'(':')','{':'}','[':']'}
 	sli := make([]byte, 0)
 	var flag bool = true
-        //遍历string s
-	for i,b := range s {
+	//遍历string s
+	// 类似遇到前括弧则入栈，遇到后括弧则和栈顶元素比对
+	for i, b := range s {
 		if b == '[' || b == '(' || b == '{' {
-                   sli = append(sli,byte(b))
-		} else if (b == ']' || b == ')' || b == '}') && len(sli) > 0 {
-                        tmpbyte := sli[len(sli)-1]
-                        sli = sli[:len(sli)-1]
+			sli = append(sli, byte(b))
+		} else if (b == ']' || b == ')' || b == '}') && len(sli) > 0 { // len判断栈为空时进来了后括弧
+			tmpbyte := sli[len(sli)-1]
+			sli = sli[:len(sli)-1] // sli 减掉最后一个byte
 			if m[tmpbyte] != byte(b) {
 				flag = false
 				return flag
 			}
+		} else if (b == ']' || b == ')' || b == '}') && len(sli) == 0 {
+			flag = false
+			return flag
+
 		}
-                if i == len(s)-1 && len(sli) != 0 {
+		if i == len(s)-1 && len(sli) != 0 { //最后一个元素比对完，但是sli还有前括号则返回false
 			flag = false
 		}
 	}
@@ -77,11 +82,13 @@ func main() {
 	var str3 string = "(){}[]"
 	var str4 string = "{[()]}"
 	var str5 string = "[()]}"
+	var str6 string = "}}"
 
 	fmt.Println(isValid(str1))
 	fmt.Println(isValid(str2))
 	fmt.Println(isValid(str3))
 	fmt.Println(isValid(str4))
 	fmt.Println(isValid(str5))
+	fmt.Println(isValid(str6))
 
 }

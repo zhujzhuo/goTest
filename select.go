@@ -1,49 +1,103 @@
 package main
 
-import "fmt"
 import (
+	"database/sql"
+	"fmt"
+	"net/http"
+	_ "net/http/pprof"
+	"sync"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
-func fibonacci(c, quit chan int) {
-	x, y := 0, 1
-	for {
-		select {
-		case c <- x:
-			x, y = y, x+y
-		case <-quit:
-			fmt.Println("quit")
-			return
-		}
-	}
-}
+var (
+	db      *sql.DB
+	preStmt *sql.Stmt
+	err     error
+)
+var MAX_POOL_SIZE = 20
+var dbPoll chan *sql.DB
+
+//mysql -utestomega_rw  -h10.94.97.147 -P4001  -p'TestOmegaRW@0612'
 
 func main() {
-	c := make(chan int)
-	quit := make(chan int)
 	go func() {
-		for i := 0; i < 10; i++ {
-			fmt.Println(<-c)
-		}
-		quit <- 0
+		http.ListenAndServe("localhost:8888", nil)
 	}()
-	fibonacci(c, quit)
-
-	tick := time.Tick(100 * time.Millisecond)
-	boom := time.After(500 * time.Millisecond)
-	for {
-		select {
-		case <-tick:
-			fmt.Println("tick.")
-		case <-boom:
-			fmt.Println("BOOM!")
-			return
-		default:
-			fmt.Println("    .")
-			time.Sleep(24 * time.Millisecond)
-		}
+	//db,err = sql.Open("mysql", "testomega_rw:TestOmegaRW@0612@tcp(10.94.97.147:4001)/db_omega_web?charset=utf8&collation=utf8_general_ci")
+	db, err = sql.Open("mysql", "qishao:qishaotest@tcp(qishao.c6slmrzd0jdl.rds.cn-north-1.amazonaws.com.cn:3306)/test?charset=utf8&collation=utf8_general_ci")
+	//db,err = sql.Open("mysql", "user1:password1@tcp(10.94.99.67:3306)/db_omega_web?charset=utf8&collation=utf8_general_ci")
+	db.SetMaxOpenConns(2)
+	db.SetMaxIdleConns(2)
+	if err != nil {
+		fmt.Printf("db open err:%v", err)
+		err = nil
 	}
+	defer db.Close()
+	preStmt, err = getStat()
+	err = nil
+	defer preStmt.Close()
+	fmt.Printf("get here, start test\n")
+	test()
 }
-//select 语句使得一个 goroutine 在多个通讯操作上等待。
-//select 会阻塞，直到条件分支中的某个可以继续执行，这时就会执行那个条件分支。
-//当多个都准备好的时候，会随机选择一个。
+
+func getStat() (*sql.Stmt, error) {
+	sqlById := "insert into t_crash_analysis_monthly (`err_tag`) values (?);"
+	preStmt, err = db.Prepare(sqlById)
+	if err != nil {
+		fmt.Printf("this is getStat func err:%v\n", err)
+		err = nil
+	}
+	return preStmt, err
+}
+
+func test() {
+	fmt.Print("enter test\n")
+	wg := &(sync.WaitGroup{})
+	for i := 0; i < 20000; i++ {
+		wg.Add(1)
+		go testDb(wg, i)
+		time.Sleep(1e9)
+		//go testDb(wg, i)
+		//wg.Add(1)
+		//go testDb2(wg, i)
+	}
+	//wg.Add(1)
+	//go testDb(wg, 0)
+
+	wg.Wait()
+}
+
+func testDb(wg *sync.WaitGroup, no int) {
+	fmt.Printf("this is %dth func\n", no)
+	begTime := time.Now()
+	defer wg.Done()
+	insertAll := "insert into  t_crash_analysis_monthly('testtesttesttest')"
+	_, err := db.Exec(insertAll)
+	if err != nil {
+		fmt.Printf("selectAll err is:%v, this is %dth func\n", err.Error(), no)
+		err = nil
+	}
+	var (
+		id int64
+	)
+	count := 0
+	for rowsAll.Next() {
+		rowsAll.Scan(&id)
+		updateOne := "update t_crash_analysis_monthly set `err_tag`='test_err_tag' where id=?"
+		_, err = db.Exec(updateOne, id)
+		if err != nil {
+			fmt.Printf("db err is:%v\n", err)
+			err = nil
+		}
+		count++
+		//fmt.Printf("this is %dth func|testDb|get message:%d,total count is:%d\n",no, id, count)
+		//time.Sleep(1e8)
+	}
+	endTime := time.Now()
+	fmt.Printf("this is %dth func;spend %d millisecond\n", no, endTime.Sub(begTime)/time.Millisecond)
+	fmt.Printf("count is %v\n", count)
+	//time.Sleep(1e12)
+	return
+}

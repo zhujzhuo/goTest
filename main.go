@@ -153,10 +153,14 @@ var p *[]int = new([]int)
 
 // 习惯用法：
 v := make([]int, 100)
+
+type Vertex struct{
+    X,Y int
+}
+var p = new(Vertex)
+var p2 = &Vertex{}
+
 //请记住，make 只适用于映射、切片和信道且不返回指针。若要获得明确的指针， 请使用 new 分配内存。
 //new(T) 会为类型为 T 的新项分配已置零的内存空间， 并返回它的地址，也就是一个类型为 *T 的值。用Go的术语来说，它返回一个指针， 该指针指向新分配的，类型为 T 的零值。
-
-
-
 
 

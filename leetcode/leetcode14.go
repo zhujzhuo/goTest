@@ -32,7 +32,7 @@ func longestCommonPrefix(strs []string) string {
 	for i := 0; i < len(basestring); i++ {
 		tmpstr := basestring[i]
 		for j := 1; j < strslen; j++ {
-			if i == len(strs[j]) || strs[j][i] != tmpstr {
+			if i == len(strs[j]) || strs[j][i] != tmpstr {  //在basestring达到最短字符串长度 或者 出现不相等字符时候 返回即可，否则一直比对下去
 				return basestring[:i]
 			}
 		}

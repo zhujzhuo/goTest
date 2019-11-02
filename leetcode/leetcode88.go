@@ -20,7 +20,8 @@ import "fmt"
 2、倒序扫描两个数组，并且nums[i]和nums[j] 相等时,移动i,因为后面的元素不涉及元素移动
    正向扫描要移动已有的元素
 */
-func merge(nums1 []int, m int, nums2 []int, n int) []int{
+
+func merge(nums1 []int, m int, nums2 []int, n int) []int {
 	if len(nums1) < m+n {
 		return []int{}
 	}
@@ -36,18 +37,37 @@ func merge(nums1 []int, m int, nums2 []int, n int) []int{
 			index--
 		}
 	}
+	//i有剩余不需要管，已经是排好序的
 	if j >= 0 {
 		for j >= 0 {
 			nums1[j] = nums2[j]
-                        j--
+			j--
 		}
 	}
 	return nums1
 }
 
+/*
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	if m == 0 {
+		copy(nums1, nums2)
+	}
+	if n == 0 {
+		return
+	}
+	copy(nums1[m:], nums2)
+	for i := 0; i < m+n; i++ {
+		for j := 0; j < m+n-1-i; j++ {
+			if nums1[j] > nums1[j+1] {
+				nums1[j], nums1[j+1] = nums1[j+1], nums1[j]
+			}
+		}
+	}
+}
+*/
 func main() {
-      var nums1 []int = []int{2,4,5,7,0,0,0,0,0}
-      var nums2 []int = []int{1,3,5,6,7}
-      fmt.Println(merge(nums1,4,nums2,5))    
-      
+	var nums1 []int = []int{2, 4, 5, 7, 0, 0, 0, 0, 0}
+	var nums2 []int = []int{1, 3, 5, 6, 7}
+	fmt.Println(merge(nums1, 4, nums2, 5))
+
 }

@@ -44,14 +44,27 @@ package main
 
 import "fmt"
 
+
+func romanToInt(s string) int {
+        //此处使用byte 避免使用string转化字节
+        var hashmap map[byte]int = map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        var result int = 0
+        for i := 0; i < len(s); i++ {
+                if i < len(s)-1 && hashmap[s[i]] < hashmap[s[i+1]] {
+                        result = result - hashmap[s[i]]
+                } else {
+                        result = result + hashmap[s[i]]
+                }
+        }
+        return result
+}
+/*
 func romanToInt(s string) int {
 	//如果当前字符代表的值不小于其右边，就加上该值；否则就减去该值
 	var hashmap map[string]int = map[string]int{"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 	//hashmap := map[string]int{"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-
 	var result int = 0
-	//在数组上使用range将传入index和值两个变量。上面那个例子我们不需要使用该元素的序号，所以我们使用空白符"_"省略了。有时侯我们确实需要知道它的索引
-	//string 的 索引 返回的是byte值
+	// string 的 索引 返回的是byte值
 	// 一般的var s string = "MCMXCIV"   fmt.Println(s[2])将会返回77 ，要想返回"M", 就要使用fmt.Println(string(s[2]))
 	//因此这里要索引出来数字需要转化为字符
 	for i := 0; i < len(s); i++ {
@@ -64,6 +77,22 @@ func romanToInt(s string) int {
 	}
 	return result
 }
+*/
+/*
+func romanToInt(s string) int {
+	var num, l int
+	var luoNum = map[int32]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+	for _, v := range s {
+		cN := luoNum[v]
+		num += cN  //不管如何先加上当前值
+		if cN > l {
+			num -= 2 * l //l保存的是上一个值，当前值大于上一个值，因为上次已经加了上一个值l，此处需要减去2*l
+		}
+		l = luoNum[v]
+	}
+	return num
+}
+*/
 
 func main() {
 	fmt.Println(romanToInt("MCMXCIV"))

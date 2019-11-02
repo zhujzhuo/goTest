@@ -24,7 +24,7 @@ var minnum int = -(1 << 31)
 func reverse(x int) int {
 	var num int
 	for x != 0 {
-		num = num*10 + x%10
+		num = num*10 + x%10 //如果x是负数，这里全部为负值的相加
 		x = x / 10
 	}
 	if num > maxnum || num < minnum {
@@ -33,6 +33,36 @@ func reverse(x int) int {
 	return num
 }
 
+/*
+import "math"
+func reverse(x int) int {
+	var r int
+	var limit int
+	if x >= 0 {
+		limit = math.MaxInt32 / 10
+		for x != 0 {
+			remainder := x % 10
+			if r > limit || (r == limit && remainder > 7) {
+				return 0
+			}
+			r = r*10 + remainder
+			x /= 10
+		}
+	} else {
+		limit = math.MinInt32 / 10
+		for x != 0 {
+			remainder := x % 10
+			if r < limit || (r == limit && remainder < -8) {
+				return 0
+			}
+			r = r*10 + remainder
+			x /= 10
+		}
+	}
+
+	return r
+}
+*/
 func main() {
 	/*
 	   fmt.Println(1<<31-1)
@@ -52,5 +82,6 @@ func main() {
 	fmt.Println(reverse(98765))
 	fmt.Println(reverse(120000))
 	fmt.Println(reverse(2147483648))
+	fmt.Println(reverse(-123))
 
 }

@@ -92,7 +92,7 @@ func main() {
 	fmt.Println(a[0])
         fmt.Println(a[1])
 	fmt.Println(a)
-        //二位数组
+        //二维数组
         type LinesOfText [][]byte
         text := LinesOfText{
             []byte("Now is the time"),
@@ -100,6 +100,13 @@ func main() {
             []byte("to bring some fun to the party."),
         }
         fmt.Println(text)
+        type LinesOfInt [][]int
+        intvar := LinesOfInt{
+            []int{1,2,3},
+            []int{4,5,6},
+            []int{7,8,9},
+        }
+        fmt.Println(intvar)
         //数组切片的初始化，必须在使用之前做make的初始化
         // 分配顶层切片。
         //picture := make([][]uint8, YSize) // 每 y 个单元一行。

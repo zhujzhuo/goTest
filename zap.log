@@ -1,0 +1,11 @@
+{"level":"info","ts":"2019-03-21T16:04:13.156+0800","caller":"goTest/zap_exercise2.go:8","msg":"simple zap logger example"}
+{"level":"info","ts":"2019-03-21T16:06:39.430+0800","caller":"goTest/zap_exercise2.go:8","msg":"info simple zap logger example"}
+{"level":"debug","ts":"2019-03-21T16:06:39.431+0800","caller":"goTest/zap_exercise2.go:9","msg":"debug simple zap logger example"}
+{"level":"error","ts":"2019-03-21T16:06:39.431+0800","caller":"goTest/zap_exercise2.go:10","msg":"error simple zap logger example"}
+{"level":"fatal","ts":"2019-03-21T16:06:39.431+0800","caller":"goTest/zap_exercise2.go:11","msg":"fatal simple zap logger example"}
+{"level":"info","ts":"2019-03-21T16:07:18.543+0800","caller":"goTest/zap_exercise2.go:8","msg":"info simple zap logger example"}
+{"level":"debug","ts":"2019-03-21T16:07:18.544+0800","caller":"goTest/zap_exercise2.go:9","msg":"debug simple zap logger example"}
+{"level":"error","ts":"2019-03-21T16:07:18.544+0800","caller":"goTest/zap_exercise2.go:10","msg":"error simple zap logger example"}
+{"level":"info","ts":"2019-03-21T16:19:58.314+0800","caller":"goTest/zap_exercise2.go:8","msg":"info simple zap logger example"}
+{"level":"debug","ts":"2019-03-21T16:19:58.314+0800","caller":"goTest/zap_exercise2.go:9","msg":"debug simple zap logger example"}
+{"level":"error","ts":"2019-03-21T16:19:58.314+0800","caller":"goTest/zap_exercise2.go:10","msg":"error simple zap logger example%!(EXTRA string=test for another args)"}

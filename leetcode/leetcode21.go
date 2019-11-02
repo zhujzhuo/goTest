@@ -25,6 +25,7 @@ type ListNode struct {
 
 //使用递归的方法
 //列表合并，每次去找到最小，赋值给res，Next的值就是下次递归取得的最小值
+/*
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	var res *ListNode
 	//如果有一条链是nil，直接返回另外一条链
@@ -44,29 +45,43 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return res
 }
+*/
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	if l1.Val < l2.Val {
+		return &ListNode{l1.Val, mergeTwoLists(l1.Next, l2)}
+	} else {
+		return &ListNode{l2.Val, mergeTwoLists(l1, l2.Next)}
+	}
+}
 func main() {
-        //创建有序链表1——>4——>5
+	//创建有序链表1——>4——>5
 	var v3 = &ListNode{5, nil}
 	var v2 = &ListNode{4, v3}
 	var l1 = ListNode{1, v2}
-        
-        //创建有序链表2——>6
+
+	//创建有序链表2——>6
 	var m2 = &ListNode{6, nil}
 	var l2 = ListNode{2, m2}
-        
-        //创建有序链表1——>6——>9——>10 
-        var t4 = &ListNode{10, nil}
-        var t3 = &ListNode{9, t4}
-        var t2 = &ListNode{6, t3}
-        var l3 = ListNode{1, t2}
 
-        //restmp 是一个*ListNode
+	//创建有序链表1——>6——>9——>10
+	var t4 = &ListNode{10, nil}
+	var t3 = &ListNode{9, t4}
+	var t2 = &ListNode{6, t3}
+	var l3 = ListNode{1, t2}
+
+	//restmp 是一个*ListNode
 	var restmp = mergeTwoLists(&l1, &l2)
 	var res = mergeTwoLists(restmp, &l3)
 	for res.Next != nil {
 		fmt.Printf("%d——>", res.Val)
 		res = res.Next
 	}
-        //打印最后一个值
-        fmt.Printf("%d\n", res.Val)
+	//打印最后一个值
+	fmt.Printf("%d\n", res.Val)
 }

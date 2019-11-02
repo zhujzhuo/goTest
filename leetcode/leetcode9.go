@@ -23,6 +23,10 @@ import "fmt"
 func isPalindrome(x int) bool {
 	if x < 0 {
 		return false
+	} else if x <= 9 {
+		return true
+	} else if x%10 == 0 {
+		return false
 	}
 	var num int
 	//传入的x在下面的计算中会被重新赋值，需要使用中间变量来保存x的初始值

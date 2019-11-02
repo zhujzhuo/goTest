@@ -1,29 +1,34 @@
 package main
+
 import (
-	"fmt"
 	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
-	"sync"
-	_ "net/http/pprof"
+	"fmt"
 	"net/http"
+	_ "net/http/pprof"
+	"sync"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
 )
-var	(
-	db	*sql.DB
+
+var (
+	db      *sql.DB
 	preStmt *sql.Stmt
-	err	error
+	err     error
 )
+
 //mysql -utestomega_rw  -h10.94.97.147 -P4001  -p'TestOmegaRW@0612'
 func main() {
 	go func() {
 		http.ListenAndServe("localhost:8888", nil)
 	}()
-        db,err = sql.Open("mysql", "testomega_rw:TestOmegaRW@0612@tcp(10.94.97.147:4001)/db_omega_web?charset=utf8&collation=utf8_general_ci")
+	//db,err = sql.Open("mysql", "testomega_rw:TestOmegaRW@0612@tcp(10.94.97.147:4001)/db_omega_web?charset=utf8&collation=utf8_general_ci")
+	db, err = sql.Open("mysql", "qishao:qishaotest@tcp(qishao.c6slmrzd0jdl.rds.cn-north-1.amazonaws.com.cn:3306)/test?charset=utf8&collation=utf8_general_ci")
 	//db,err = sql.Open("mysql", "user1:password1@tcp(10.94.99.67:3306)/db_omega_web?charset=utf8&collation=utf8_general_ci")
 	db.SetMaxOpenConns(2)
 	db.SetMaxIdleConns(2)
 	if err != nil {
-		fmt.Printf("db open err:%v",err)
+		fmt.Printf("db open err:%v", err)
 		err = nil
 	}
 	defer db.Close()
@@ -34,20 +39,20 @@ func main() {
 	test()
 }
 
-func getStat()(*sql.Stmt, error){
+func getStat() (*sql.Stmt, error) {
 	sqlById := "insert into t_crash_analysis_monthly (`err_tag`) values (?);"
 	preStmt, err = db.Prepare(sqlById)
-	if err != nil{
+	if err != nil {
 		fmt.Printf("this is getStat func err:%v\n", err)
 		err = nil
 	}
 	return preStmt, err
 }
 
-func test(){
+func test() {
 	fmt.Print("enter test\n")
 	wg := &(sync.WaitGroup{})
-	for i:=0; i < 20000;i ++{
+	for i := 0; i < 20000; i++ {
 		wg.Add(1)
 		go testDb(wg, i)
 		time.Sleep(1e9)
@@ -61,14 +66,13 @@ func test(){
 	wg.Wait()
 }
 
-func testDb(wg *sync.WaitGroup, no int){
+func testDb(wg *sync.WaitGroup, no int) {
 	fmt.Printf("this is %dth func\n", no)
 	begTime := time.Now()
 	defer wg.Done()
-	selectAll := "select id from t_crash_analysis_monthly where 1=1"
-	rowsAll,err := db.Query(selectAll)
-	defer rowsAll.Close()
-	if err!= nil{
+	insertAll := "insert into  t_crash_analysis_monthly('testtesttesttest')"
+	_, err := db.Exec(insertAll)
+	if err != nil {
 		fmt.Printf("selectAll err is:%v, this is %dth func\n", err.Error(), no)
 		err = nil
 	}
@@ -76,21 +80,21 @@ func testDb(wg *sync.WaitGroup, no int){
 		id int64
 	)
 	count := 0
-	for rowsAll.Next(){
+	for rowsAll.Next() {
 		rowsAll.Scan(&id)
 		updateOne := "update t_crash_analysis_monthly set `err_tag`='test_err_tag' where id=?"
 		_, err = db.Exec(updateOne, id)
-		if err != nil{
+		if err != nil {
 			fmt.Printf("db err is:%v\n", err)
 			err = nil
 		}
-		count ++
+		count++
 		//fmt.Printf("this is %dth func|testDb|get message:%d,total count is:%d\n",no, id, count)
 		//time.Sleep(1e8)
 	}
 	endTime := time.Now()
 	fmt.Printf("this is %dth func;spend %d millisecond\n", no, endTime.Sub(begTime)/time.Millisecond)
-	fmt.Printf("count is %v\n",count)
+	fmt.Printf("count is %v\n", count)
 	//time.Sleep(1e12)
 	return
 }

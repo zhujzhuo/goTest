@@ -4,6 +4,8 @@ import (
 	"fmt"
 //      "math"
         "strconv"
+        "strings"
+        "encoding/hex"
 )
 /*
 func Sum(a *[6]float64) (sum float64) {
@@ -91,11 +93,15 @@ func main() {
         var str string = "12321"
         var count int = 3
         fmt.Println(string(str[1])+"3") //23
+        fmt.Println(string(count)) // 没法直接转化输出是空
         fmt.Println(string(count) + string(str[2])) //3
+        fmt.Println("3" + string(str[2])) //33
         //字符串和int的转化，需要用到strconv库
         b,_ := strconv.Atoi(str) 
         fmt.Println(b) //12321
         fmt.Println(strconv.Itoa(count)) //3
+        fmt.Println("============")
+        fmt.Println(str[:0]) //""
 
         //byte 测试 
         bs := []byte{'1'}
@@ -118,4 +124,21 @@ func main() {
         for i:=0;i<len(ret);i++{
             fmt.Println(res[len(res)-1-i])
         }
+        fmt.Println(-324%10)
+        //
+        var sanitizeQuotesRegexp = "testtestvar"
+        fmt.Println(sanitizeQuotesRegexp)    
+        //
+        var filepath = "/home/mysql/data1"
+        fmt.Println(strings.LastIndex("/home/mysql/data1","/"))  // 11
+        fmt.Println(filepath[0:12])
+  
+        src := []byte(" ")  //空格32
+        encodedStr := hex.EncodeToString(src)
+        fmt.Println(src) //[32]
+        fmt.Println(encodedStr) //20
+     
+        test, _ := hex.DecodeString("\xff\xff") // []
+        fmt.Println(test) //[]
 }
+   

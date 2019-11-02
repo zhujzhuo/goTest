@@ -18,7 +18,7 @@
 示例 3:
 输入: [9,9,9,9]
 输出: [1,0,0,0,0]
-解释: 输入数组表示数字 4321。
+解释: 输入数组表示数字 9999。
 */
 
 package main
@@ -39,7 +39,7 @@ func plusOne(digits []int) []int {
 	}
 	//表示全部是9的情况，第一位才会是0,结果集的其它位全部是0
 	if digits[0] == 0 {
-                //利用make初始化其它位数为0，长度为len+1
+		//利用make初始化其它位数为0，长度为len+1
 		res = make([]int, len_di+1)
 		res[0] = 1
 	} else {
@@ -49,13 +49,40 @@ func plusOne(digits []int) []int {
 	return res
 }
 func main() {
-       var nums1 []int = []int{9,9,9,9}
-       var nums2 []int = []int{9,9}
-       var nums3 []int = []int{1,2,3,4}
-       var nums4 []int = []int{1,2,3,9}
-       fmt.Println(plusOne(nums1))
-       fmt.Println(plusOne(nums2))
-       fmt.Println(plusOne(nums3))
-       fmt.Println(plusOne(nums4))
-       
+	var nums1 []int = []int{9, 9, 9, 9}
+	var nums2 []int = []int{9, 9}
+	var nums3 []int = []int{1, 2, 3, 4}
+	var nums4 []int = []int{1, 2, 3, 9}
+	fmt.Println(plusOne(nums1))
+	fmt.Println(plusOne(nums2))
+	fmt.Println(plusOne(nums3))
+	fmt.Println(plusOne(nums4))
+
 }
+
+/*
+func plusOne(digits []int) []int {
+  carry := 1
+  res := make([]int, len(digits)+1)
+  for i := len(digits) -1 ; i >= 0; i-- {
+    if i == len(digits) -1 {
+      tmp := digits[i]
+      digits[i] = (digits[i] + carry ) % 10
+      carry =  (tmp + carry) / 10
+      res[i+1] = digits[i]
+      res[i] = carry
+    }else {
+      tmp := digits[i]
+      digits[i] = (tmp + carry) % 10
+      carry = (tmp +carry )/ 10
+      res[i+1] = digits[i]
+      res[i] = carry
+    }
+  }
+  i := 0
+  for i < len(digits) && res[i] == 0 {
+    i++
+  }
+  return res[i:]
+}
+*/

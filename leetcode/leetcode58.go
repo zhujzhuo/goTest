@@ -11,6 +11,22 @@ package main
 
 import "fmt"
 
+func lengthOfLastWord(s string) int {
+//l是非空字符的个数
+	l := 0
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] == ' ' && l == 0 {//去掉末尾的空格
+			l = 0
+		} else if s[i] == ' ' && l != 0 { //第一个非空格字符之前是一个空格，返回
+			return l
+		} else {// 当前非空格，则继续++
+			l++
+		}
+	}
+	return l
+}
+
+/*
 //去掉字符串末尾的空格，之后倒叙找到第一个空格位置，之后的单词就是最后一个单词，得到其长度即可
 func lengthOfLastWord(s string) int {
 	if len(s) == 0 {
@@ -35,8 +51,8 @@ func lengthOfLastWord(s string) int {
 		}
 	}
 	return end - start
-
 }
+*/
 
 func main() {
 	var str1 string = "Hello World"

@@ -34,18 +34,31 @@ package main
 import "fmt"
 
 func removeElement(nums []int, val int) int {
+	dist := 0
+	for _, num := range nums {
+		if num != val {
+			nums[dist] = num
+			dist++
+		}
+	}
+	return dist
+}
+
+/*
+func removeElement(nums []int, val int) int {
 	if nums == nil {
 		return 0
 	}
-	i := -1 //i保存的是符合条件的下标，不能初始化为0
+	i := 0
 	for j := 0; j < len(nums); j++ {
-		if nums[j] != val && i != j {
-			i++
+		if nums[j] != val  {
 			nums[i] = nums[j]
+			i++
 		}
 	}
-	return i+1  // index 比下标要大1
+	return i  // index 比下标要大1，直接返回i即可
 }
+*/
 
 func main() {
 

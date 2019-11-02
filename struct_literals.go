@@ -12,6 +12,7 @@ var (
 	v3 = Vertex{}      // X:0 Y:0
 	p  = &Vertex{1, 2} // 创建一个 *Vertex 类型的结构体（指针）
         p1 = &v1
+        p2 = new(Vertex)
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
         fmt.Println()
         fmt.Printf("p.X:%v,p.Y:%v",p.X,p.Y)
         fmt.Println()
+        p2.X=10
+        fmt.Println(p2)
 }
 
 

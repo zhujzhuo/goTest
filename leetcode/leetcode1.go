@@ -21,8 +21,8 @@ func twoSum(nums []int, target int) []int {
         if i,ok := tables[tmp]; ok {
             return []int{i,index}
         }else{
-        //tables 键值对是数组中的 值和下标 
-        //比如3  4 target7 ，搜到3的时候tables里面还没有4，因此将3加入进去，当搜到4的时候，3已经在tables中了，返回即可
+        //tables 键值对是数组中的 值（value）和下标 （index）
+        //比如3  4 target=7 ，搜到3的时候tables里面还没有4，因此将3加入进去，当搜到4的时候，3已经在tables中了，返回即可
         //这也就是为什么这里不先遍历一次数组全部赋值给map的原因，最坏的情况下就是最后两个元素符合条件，最好情况是第一二个元素符合条件
         //最多遍历一遍，最少只需要查询前两个元素
             tables[value] = index
