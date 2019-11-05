@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"time"
-        "math"
 )
+
+//实现Error()  string  的interface就行
 type error interface {
-    Error() string
+	Error() string
 }
 type MyError struct {
 	When time.Time
@@ -24,6 +26,7 @@ func run() error {
 		"it didn't work",
 	}
 }
+
 type ErrNegativeSqrt float64
 
 func (e ErrNegativeSqrt) Error() (float64, error) {

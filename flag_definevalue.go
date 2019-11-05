@@ -10,9 +10,9 @@ go run  flag_definevalue.go  -slice="java,go,php     scr"  -testint=3307  -flagn
 package main
 
 import (
-    "flag"
-    "fmt"
-    "strings"
+	"flag"
+	"fmt"
+	"strings"
 )
 
 //定义一个类型，用于增加该类型方法
@@ -20,8 +20,8 @@ type sliceValue []string
 
 //new一个存放命令行参数值的slice
 func newSliceValue(vals []string, p *[]string) *sliceValue {
-    *p = vals
-    return (*sliceValue)(p)
+	*p = vals
+	return (*sliceValue)(p)
 }
 
 /*
@@ -30,17 +30,17 @@ type Value interface {
     String() string
     Set(string) error
 }
-实现flag包中的Value接口，将命令行接收到的值用,分隔存到slice里
+实现flag包中的Value接口，将命令行接收到的值用“,”分隔存到slice里
 */
 func (s *sliceValue) Set(val string) error {
-    *s = sliceValue(strings.Split(val, ","))
-    return nil
+	*s = sliceValue(strings.Split(val, ","))
+	return nil
 }
 
 //flag为slice的默认值default is me,和return返回值没有关系
 func (s *sliceValue) String() string {
-    *s = sliceValue(strings.Split("default is me", ","))
-    return "It's none of my business"
+	*s = sliceValue(strings.Split("default is me", ","))
+	return "It's none of my business"
 }
 
 /*
@@ -53,21 +53,20 @@ func (s *sliceValue) String() string {
 flag.Var(&flagVal, "name", "help message for flagname")
 */
 
-func main(){
-    var languages []string
-    var flagVal []string
-    var Intv int
-    flag.Var(newSliceValue([]string{}, &languages), "slice", "I like programming `languages`")
-    flag.Var(newSliceValue([]string{}, &flagVal), "name", "help message for flagname")
-    
-    ip := flag.Int("flagname", 1234, "help message for flagname")  //with type *int
-    flag.IntVar(&Intv, "testint",3306,"test int var") //&Intv
-    flag.Parse()
+func main() {
+	var languages []string
+	var flagVal []string
+	var Intv int
+	flag.Var(newSliceValue([]string{}, &languages), "slice", "I like programming `languages`")
+	flag.Var(newSliceValue([]string{}, &flagVal), "name", "help message for flagname")
 
+	ip := flag.Int("flagname", 1234, "help message for flagname") //with type *int
+	flag.IntVar(&Intv, "testint", 3306, "test int var")           //&Intv
+	flag.Parse()
 
-    //打印结果slice接收到的值
-    fmt.Println(languages)
-    fmt.Println(Intv)
-    fmt.Println(flagVal)
-    fmt.Println(*ip)
+	//打印结果slice接收到的值
+	fmt.Println(languages)
+	fmt.Println(Intv)
+	fmt.Println(flagVal)
+	fmt.Println(*ip)
 }

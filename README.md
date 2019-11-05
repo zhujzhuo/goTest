@@ -1,10 +1,32 @@
 /*
-flag  重点（命令行格式的需要用到很多）
+
+python : 并发(https://www.runoob.com/python/python-multithreading.html)
+
+go: database/sql 、go-sql-driver  两个模块的功能，测试并发prepare
+
+
+日志  google_logger.go [done]
+sync_exercise  可以和channel  一起找并发的实例。可以看具体的代码，首先看看gh-ost的代码，具体实现一下功能[done]
+flag  重点（命令行格式的需要用到很多）[done]
 文件操作：fileget   find_file   操作系统文件的读写，目录的遍历等
-自定义error : errors    stringer.go（自定义格式非常重要）
-指针:pointer
-sync_exercise  可以和channel 一起找并发的实例。可以看具体的代码，首先看看gh-ost的代码，具体实现一下功能
-zap 重点（日志是每个系统必须的）
+string和byte的操作   （test）[done]
+自定义error : errors    stringer.go（自定义格式非常重要）[done]
+指针:pointer(make 只适用于映射、切片和信道且不返回指针。若要获得明确的指针， 请使用 new 分配内存) [done]
+v := make([]int, 100)
+var v  []int = make([]int, 100)
+p := new(SyncedBuffer)  // type *SyncedBuffer
+p := &v
+函数作为参数传递：test1
+
+
+
+innodb status 
+printslave
+killer
+gtid 监控
+gtidskip
+分析binlog，看gh-ost   vitess
+
 
 godoc 既是一个程序，又是一个Web服务器，它对Go的源码进行处理，并提取包中的文档内容。 出现在顶级声明之前，
 且与该声明之间没有空行的注释，将与该声明一起被提取出来，作为该条目的说明文档。 这些注释的类型和风格决定了 

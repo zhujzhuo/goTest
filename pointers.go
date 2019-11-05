@@ -1,4 +1,5 @@
 package main
+
 /*
 new 分配
 Go提供了两种分配原语，即内建函数 new 和 make。 它们所做的事情不同，所应用的类型也不同。它们可能会引起混淆，但规则却很简单。 让我们先来看看 new。这是个用来分配内存的内建函数， 但与其它语言中的同名函数不同，它不会初始化内存，只会将内存置零。 也就是说，new(T) 会为类型为 T 的新项分配已置零的内存空间， 并返回它的地址，也就是一个类型为 *T 的值。用Go的术语来说，它返回一个指针， 该指针指向新分配的，类型为 T 的零值。
@@ -32,20 +33,24 @@ var p *[]int = new([]int)
 
 // 习惯用法：
 v := make([]int, 100)
+var v  []int = make([]int, 100)
 
 请记住，make 只适用于映射、切片和信道且不返回指针。若要获得明确的指针， 请使用 new 分配内存。
 */
 import "fmt"
+
 type Vertex struct {
 	X int
 	Y int
 }
+
 var (
-	v1 = Vertex{1, 2}  // 类型为 Vertex
-	v2 = Vertex{X: 1}  // Y:0 被省略
-	v3 = Vertex{}      // X:0 和 Y:0
-	pvar  = &v1 // 类型为 *Vertex
+	v1   = Vertex{1, 2} // 类型为 Vertex
+	v2   = Vertex{X: 1} // Y:0 被省略
+	v3   = Vertex{}     // X:0 和 Y:0
+	pvar = &v1          // 类型为 *Vertex
 )
+
 func main() {
 	fmt.Println(v1, pvar.X, v2, v3)
 	v := Vertex{1, 2}
@@ -61,10 +66,9 @@ func main() {
 	*p = 21         // set i through the pointer
 	fmt.Println(i)  // see the new value of i
 
-	p = &j         // point to j
+	p = &j // point to j
 	fmt.Println(*p)
 	fmt.Println(&p)
 	*p = *p / 37   // divide j through the pointer
 	fmt.Println(j) // see the new value of j
 }
-

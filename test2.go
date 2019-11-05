@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"strings"
 )
 
 func main() {
@@ -16,4 +17,10 @@ func main() {
 	fmt.Println(len(str1))
 	fmt.Println(runtime.GOARCH)
 	fmt.Println(os.Getenv("ETCDCOV_ARGS"))
+	val := "test,for,a,te if not,print"
+	//val := "if not print"
+	v := strings.Split(val, ",")
+	for _, i := range v {
+		fmt.Println(i)
+	}
 }

@@ -45,6 +45,7 @@ func main() {
 		"http://www.golang.org/",
 		"http://www.google.com/",
 		"http://www.somestupidname.com/",
+		"http://www.baidu.com",
 	}
 	for _, url := range urls {
 		// Increment the WaitGroup counter.
