@@ -65,6 +65,11 @@ func main() {
 	MyPrintf(v1, v2, v3, v4)
 	i := []int{1, 2, 3, 4, 5}
 	myfunc(1, 2, 3, 4, 5, 6, 7)
+	fmt.Println("=============== print i:")
+	for _, v := range i {
+		fmt.Println(v)
+	}
+	fmt.Println("=============== print i:")
 	myfunc2(i)
 	MyPrintf(i)
 	MyPrintf(v5)
