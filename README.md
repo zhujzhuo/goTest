@@ -1,10 +1,7 @@
 /*
-
-python : 并发(https://www.runoob.com/python/python-multithreading.html)
-
 go: database/sql 、go-sql-driver  两个模块的功能，测试并发prepare
 
-
+python : 并发(https://www.runoob.com/python/python-multithreading.html)
 日志  google_logger.go [done]
 sync_exercise  可以和channel  一起找并发的实例。可以看具体的代码，首先看看gh-ost的代码，具体实现一下功能[done]
 flag  重点（命令行格式的需要用到很多）[done]
