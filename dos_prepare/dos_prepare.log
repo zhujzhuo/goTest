@@ -1,0 +1,27 @@
+INFO : 2019/11/06 22:41:38 I'm about to do something!
+INFO : 2019/11/06 22:41:38 just test for  logger
+INFO : 2019/11/06 22:41:38 ID = 12, affected = 1
+INFO : 2019/11/06 22:57:15 I'm about to do something!
+INFO : 2019/11/06 22:57:15 just test for  logger
+INFO : 2019/11/06 22:57:15 ID = 13, affected = 1
+INFO : 2019/11/06 22:57:21 I'm about to do something!
+INFO : 2019/11/06 22:57:21 just test for  logger
+INFO : 2019/11/06 22:57:21 ID = 14, affected = 1
+INFO : 2019/11/06 22:58:01 I'm about to do something!
+INFO : 2019/11/06 22:58:01 just test for  logger
+INFO : 2019/11/06 22:58:01 ID = 15, affected = 1
+INFO : 2019/11/06 22:58:22 I'm about to do something!
+INFO : 2019/11/06 22:58:22 just test for  logger
+INFO : 2019/11/06 22:58:22 ID = 16, affected = 1
+INFO : 2019/11/06 22:59:18 I'm about to do something!
+INFO : 2019/11/06 22:59:18 just test for  logger
+INFO : 2019/11/06 22:59:18 ID = 17, affected = 1
+INFO : 2019/11/06 23:00:26 I'm about to do something!
+INFO : 2019/11/06 23:00:26 just test for  logger
+INFO : 2019/11/06 23:00:26 ID = 18, affected = 1
+INFO : 2019/11/06 23:00:49 I'm about to do something!
+INFO : 2019/11/06 23:00:49 just test for  logger
+INFO : 2019/11/06 23:00:49 ID = 19, affected = 1
+INFO : 2019/11/06 23:01:22 I'm about to do something!
+INFO : 2019/11/06 23:01:22 just test for  logger
+INFO : 2019/11/06 23:01:22 ID = 20, affected = 1

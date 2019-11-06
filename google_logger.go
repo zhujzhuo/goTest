@@ -12,7 +12,7 @@ import (
 	"github.com/google/logger"
 )
 
-const logPath = "/Users/didi/gocode_1.12/src/goTest/google_logger.log"
+const logPath = "./google_logger.log"
 
 var verbose = flag.Bool("verbose", false, "print info level logs to stdout")
 

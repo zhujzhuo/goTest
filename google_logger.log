@@ -1,8 +1,4 @@
-INFO : 2019/11/05 19:33:46.063507 google_logger.go:44: I'm about to do something!
-ERROR: 2019/11/05 19:33:46.063889 google_logger.go:46: Error running doSomething: some error
-INFO : 2019/11/05 19:34:39.348439 google_logger.go:45: I'm about to do something!
-ERROR: 2019/11/05 19:34:39.349218 google_logger.go:47: Error running doSomething: at 2019-11-05 19:34:39.349181 +0800 CST m=+0.002320805, it didn't work
-INFO : 2019/11/05 19:36:16 I'm about to do something!
-ERROR: 2019/11/05 19:36:16 Error running doSomething: at 2019-11-05 19:36:16.50072 +0800 CST m=+0.001671696, it didn't work
-INFO : 2019/11/05 19:36:44 I'm about to do something!
-ERROR: 2019/11/05 19:36:44 Error running doSomething: some errors
+INFO : 2019/11/06 21:32:27 I'm about to do something!
+ERROR: 2019/11/06 21:32:27 Error running doSomething: some errors
+INFO : 2019/11/06 21:32:42 I'm about to do something!
+ERROR: 2019/11/06 21:32:42 Error running doSomething: some errors
