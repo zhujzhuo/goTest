@@ -43,3 +43,12 @@ INFO : 2019/11/07 07:44:16 ID = 25, affected = 1
 INFO : 2019/11/07 07:44:49 I'm about to do something!
 INFO : 2019/11/07 07:44:49 just test for  logger
 INFO : 2019/11/07 07:44:49 ID = 26, affected = 1
+INFO : 2019/11/07 11:44:59 I'm about to do something!
+INFO : 2019/11/07 11:44:59 just test for  logger
+INFO : 2019/11/07 11:44:59 ID = 3, affected = 1
+INFO : 2019/11/07 11:46:11 I'm about to do something!
+INFO : 2019/11/07 11:46:11 just test for  logger
+INFO : 2019/11/07 11:46:12 ID = 4, affected = 1
+INFO : 2019/11/07 14:31:10 I'm about to do something!
+INFO : 2019/11/07 14:31:10 just test for  logger
+INFO : 2019/11/07 14:31:10 ID = 5, affected = 1

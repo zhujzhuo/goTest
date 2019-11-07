@@ -4,11 +4,12 @@ import (
 	"database/sql"
 	"flag"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/google/logger"
 	"log"
 	"os"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/google/logger"
 )
 
 var (
@@ -39,7 +40,8 @@ func main() {
 
 	logger.Info("I'm about to do something!")
 
-	db, err = sql.Open("mysql", "mysqltest:123456@tcp(localhost:3306)/test?charset=utf8mb4")
+	//db, err = sql.Open("mysql", "mysqltest:123456@tcp(localhost:3306)/test?charset=utf8mb4")
+	db, err = sql.Open("mysql", "root:123456@tcp(10.179.132.206:3306)/test?charset=utf8mb4")
 	if err != nil {
 		logger.Fatalf("Failed to open mysql connection: %v", err)
 	}
@@ -58,6 +60,9 @@ func main() {
 	//test select query
 	//rows, err := db.Query("select id, name from users where id = ?", 1)
 	rows, err := db.Query("select id, name from users")
+	//_, err = db.Exec("Update  users set  name='update' where name='Dolly'")  //直接执行更新
+	//_, err = db.Exec("DELETE FROM users where id=5")   //直接执行删除
+
 	//捕获特殊的报错信息,下面的不是常规的写法
 	//if strings.Contains(err.Error(), "Access denied") {
 	// Handle the permission-denied error
@@ -83,36 +88,36 @@ func main() {
 	for rows.Next() { //遍历结果
 		err := rows.Scan(&id, &name)
 		if err != nil {
-			logger.Fatalf("", err)
+			log.Fatal(err)
 		}
 		fmt.Println("id:", id, "name:", name)
 	}
 	err = rows.Err()
 	if err != nil {
-		logger.Fatalf("", err)
+		log.Fatal(err)
 	}
 
 	//test delete insert  update  for exec
 	stmt, err = db.Prepare("INSERT INTO users(name) VALUES(?)")
 	if err != nil {
-		logger.Fatalf("", err)
+		log.Fatal(err)
 	}
 	res, err = stmt.Exec("Dolly")
 	if err != nil {
-		logger.Fatalf("", err)
+		log.Fatal(err)
 	}
 	lastId, err = res.LastInsertId()
 	if err != nil {
-		logger.Fatalf("", err)
+		log.Fatal(err)
 	}
 	rowCnt, err = res.RowsAffected()
 	if err != nil {
-		logger.Fatalf("", err)
+		log.Fatal(err)
 	}
 	log.Printf("ID = %d, affected = %d\n", lastId, rowCnt)
-	//_, err = db.Exec("Update  users set  name='update' where name='Dolly'")  //直接执行更新
-	//_, err = db.Exec("DELETE FROM users where id=5")   //直接执行删除
 
+	//1.  prepare创建链接后，放回连接池【与分片绑定】；exec再从连接池取出【可能是其他连接】
+	//2.  直接exec，创建/获取连接，执行；使用同一个连接
 	// transaction
 	tx, err := db.Begin()
 	if err != nil {
