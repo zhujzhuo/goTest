@@ -17,7 +17,7 @@ var (
 	err  error
 )
 var (
-	id int
+	id   int
 	name string
 )
 
@@ -46,30 +46,94 @@ func main() {
 	logger.Info("just test for  logger")
 
 	defer db.Close()
+	//test  prepare
 	stmt, err = db.Prepare("insert into testprepare (i1) values (?)")
 	defer stmt.Close()
-	res, err := stmt.Exec(20)   //写入使用Exec
-        //rows, err := stmt.Query(1)   //查询使用Query
+	res, err := stmt.Exec(20) //写入使用Exec
+	//rows, err := stmt.Query(1)   //查询使用Query
 	lastId, err := res.LastInsertId()
 	rowCnt, err := res.RowsAffected()
 	logger.Infof("ID = %d, affected = %d\n", lastId, rowCnt)
 
+	//test select query
 	//rows, err := db.Query("select id, name from users where id = ?", 1)
 	rows, err := db.Query("select id, name from users")
+	//捕获特殊的报错信息,下面的不是常规的写法
+	//if strings.Contains(err.Error(), "Access denied") {
+	// Handle the permission-denied error
+	//}
+	/* 如下是捕获异常的正确方法
+	        if driverErr, ok := err.(*mysql.MySQLError); ok { // Now the error number is accessible directly
+		if driverErr.Number == 1045 {
+			// Handle the permission-denied error
+		}
+	        }
+	*/
+	/*
+	   if driverErr, ok := err.(*mysql.MySQLError); ok {
+	   	if driverErr.Number == mysqlerr.ER_ACCESS_DENIED_ERROR {
+	   		// Handle the permission-denied error
+	   	}
+	   }
+	*/
 	if err != nil {
 		logger.Fatalf("query error :%v", err)
 	}
 	defer rows.Close()
-	for rows.Next() {
+	for rows.Next() { //遍历结果
 		err := rows.Scan(&id, &name)
 		if err != nil {
-			logger.Fatalf("",err)
+			logger.Fatalf("", err)
 		}
-		fmt.Println("id:",id,"name:",name)
+		fmt.Println("id:", id, "name:", name)
 	}
 	err = rows.Err()
 	if err != nil {
-		logger.Fatalf("",err)
+		logger.Fatalf("", err)
 	}
-        fmt.Println()
+
+	//test delete insert  update  for exec
+	stmt, err = db.Prepare("INSERT INTO users(name) VALUES(?)")
+	if err != nil {
+		logger.Fatalf("", err)
+	}
+	res, err = stmt.Exec("Dolly")
+	if err != nil {
+		logger.Fatalf("", err)
+	}
+	lastId, err = res.LastInsertId()
+	if err != nil {
+		logger.Fatalf("", err)
+	}
+	rowCnt, err = res.RowsAffected()
+	if err != nil {
+		logger.Fatalf("", err)
+	}
+	log.Printf("ID = %d, affected = %d\n", lastId, rowCnt)
+	//_, err = db.Exec("Update  users set  name='update' where name='Dolly'")  //直接执行更新
+	//_, err = db.Exec("DELETE FROM users where id=5")   //直接执行删除
+
+	// transaction
+	tx, err := db.Begin()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer tx.Rollback()
+	stmt, err := tx.Prepare("INSERT INTO users(name) VALUES (?)")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close() // danger!
+	for i := 0; i < 10; i++ {
+		_, err = stmt.Exec(i)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+	err = tx.Commit()
+	if err != nil {
+		log.Fatal(err)
+	}
+	// stmt.Close() runs here!
+	fmt.Println()
 }
