@@ -1,4 +1,5 @@
 package main
+
 //这个binlog解析和Mysql版本有关系，8.0的版本暂时不支持
 import (
 	"context"
@@ -16,9 +17,9 @@ func main() {
 	cfg := replication.BinlogSyncerConfig{
 		ServerID: 100,
 		Flavor:   "mysql",
-		Host:     "10.179.132.206",
+		Host:     "127.0.0.1",
 		Port:     3306,
-		User:     "root",
+		User:     "mysqltest",
 		Password: "123456",
 	}
 	syncer := replication.NewBinlogSyncer(cfg)
@@ -53,6 +54,7 @@ func main() {
 		ev.Dump(os.Stdout)
 	}
 }
+
 /*
 [2019/11/09 22:05:31] [info] binlogsyncer.go:133 create BinlogSyncer with config {100 mysql 10.179.132.206 3306 root    false false <nil> false UTC false 0 0s 0s 0 false}
 [2019/11/09 22:05:31] [info] binlogsyncer.go:354 begin to sync binlog from position (dd-bin.000079, 4)
