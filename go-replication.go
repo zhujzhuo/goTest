@@ -1,5 +1,5 @@
 package main
-
+//这个binlog解析和Mysql版本有关系，8.0的版本暂时不支持
 import (
 	"context"
 	"fmt"
