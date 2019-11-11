@@ -172,6 +172,7 @@ func testPool() {
 
 func main() {
 	fmt.Println("start main.")
+	testMutex()
 	testRWMutex()
 	testWaitGroup()
 }

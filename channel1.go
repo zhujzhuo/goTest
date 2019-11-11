@@ -12,8 +12,8 @@ func Afunctionout(ch chan int) {
 }
 func main() {
 	ch := make(chan string) //无缓冲的channel
-	go Afunctionin(ch)      //先使用协程去读取channel
-	fmt.Println(<-ch)       //再写入数据
+	go Afunctionin(ch)      //先使用协程去写channel
+	fmt.Println(<-ch)       //再读数据
 	// 输出结果：
 	// finish
 	// test channel for one example
