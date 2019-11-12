@@ -24,19 +24,19 @@ func main() {
 	}
 	rwMutex := sync.RWMutex{}
 	for j := 0; j < 5; j++ {
-		go func(idx int) { //使用了go使得后面的j不确定
+		go func(idx int) {
 			rwMutex.Lock()
 			defer rwMutex.Unlock()
-			sum += j //这个地方的j是不确定的，可能是0 1 2 3 4 5 中的任何一个
+			sum += idx
 			fmt.Println("Write Mutex :", idx)
-			fmt.Println("sum&j", sum, j)
+			fmt.Println("sum&j", sum, idx)
 		}(j)
 		func(idx int) {
 			rwMutex.Lock()
 			defer rwMutex.Unlock()
-			sum2 += j //这个地方的j是确定的
+			sum2 += idx
 			fmt.Println("Write Mutex :", idx)
-			fmt.Println("sum2&j", sum2, j)
+			fmt.Println("sum2&j", sum2, idx)
 		}(j)
 
 	}
