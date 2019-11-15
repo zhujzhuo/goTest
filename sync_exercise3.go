@@ -29,14 +29,14 @@ func main() {
 			defer rwMutex.Unlock()
 			sum += idx
 			fmt.Println("Write Mutex :", idx)
-			fmt.Println("sum&j", sum, idx)
+			fmt.Println("sum&idx", sum, idx)
 		}(j)
 		func(idx int) {
 			rwMutex.Lock()
 			defer rwMutex.Unlock()
 			sum2 += idx
 			fmt.Println("Write Mutex :", idx)
-			fmt.Println("sum2&j", sum2, idx)
+			fmt.Println("sum2&idx", sum2, idx)
 		}(j)
 
 	}
