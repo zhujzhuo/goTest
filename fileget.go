@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	dir_list, e := ioutil.ReadDir("/Users/zhujinzhuo/gocode/src/")
+	dir_list, e := ioutil.ReadDir("/Users/didi/gocode/src/")
 	if e != nil {
 		fmt.Println("read dir error")
 		return
