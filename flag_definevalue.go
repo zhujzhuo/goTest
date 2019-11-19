@@ -57,11 +57,15 @@ func main() {
 	var languages []string
 	var flagVal []string
 	var Intv int
+        var c string
 	flag.Var(newSliceValue([]string{}, &languages), "slice", "I like programming `languages`")
 	flag.Var(newSliceValue([]string{}, &flagVal), "name", "help message for flagname")
-
+        
+        //另一种方式
+        q := flag.Bool("q", false, "suppress non-error messages during configuration testing")
 	ip := flag.Int("flagname", 1234, "help message for flagname") //with type *int
-	flag.IntVar(&Intv, "testint", 3306, "test int var")           //&Intv
+	flag.IntVar(&Intv, "testint", 3306, "test int var `port`")           //&Intv
+        flag.StringVar(&c, "c", "conf/nginx.conf", "set configuration `file`")
 	flag.Parse()
 
 	//打印结果slice接收到的值
@@ -69,4 +73,7 @@ func main() {
 	fmt.Println(Intv)
 	fmt.Println(flagVal)
 	fmt.Println(*ip)
+	fmt.Println(*q)
+	fmt.Println(c)
+        flag.PrintDefaults()
 }
