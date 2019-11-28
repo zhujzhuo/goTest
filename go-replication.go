@@ -17,9 +17,9 @@ func main() {
 	cfg := replication.BinlogSyncerConfig{
 		ServerID: 100,
 		Flavor:   "mysql",
-		Host:     "127.0.0.1",
+		Host:     "10.179.132.206",
 		Port:     3306,
-		User:     "mysqltest",
+		User:     "root",
 		Password: "123456",
 	}
 	syncer := replication.NewBinlogSyncer(cfg)
@@ -33,14 +33,14 @@ func main() {
 	// the mysql GTID set likes this "de278ad0-2106-11e4-9f8e-6edd0ca20947:1-2"
 	// the mariadb GTID set likes this "0-1-100"
 	fmt.Println(time.Now())
-	for {
-		ev, err := streamer.GetEvent(context.Background())
-		// Dump event
-		if err != nil {
-			fmt.Println(err)
-		}
-		ev.Dump(os.Stdout)
-	}
+	//for {
+        //	ev, err := streamer.GetEvent(context.Background())
+	//	// Dump event
+	//	if err != nil {
+	//		fmt.Println(err)
+	//	}
+	//	ev.Dump(os.Stdout)
+	//}
 	// or we can use a timeout context
 	for {
 		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
