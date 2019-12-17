@@ -64,8 +64,9 @@ func main() {
 	//_, err = db.Exec("DELETE FROM users where id=5")   //直接执行删除
 
 	//捕获特殊的报错信息,下面的不是常规的写法
+	//
 	//if strings.Contains(err.Error(), "Access denied") {
-	// Handle the permission-denied error
+	//Handle the permission-denied error
 	//}
 	/* 如下是捕获异常的正确方法
 	        if driverErr, ok := err.(*mysql.MySQLError); ok { // Now the error number is accessible directly

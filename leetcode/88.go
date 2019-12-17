@@ -35,7 +35,8 @@ func add(str1 string, str2 string) string {
 		num := (int1 + int2 + carry) % 10  //计算加和个位数
 		carry = (int1 + int2 + carry) / 10 //计算加和进位
 		result = strconv.Itoa(num) + result
-		if i == 0 && carry == 1 { //最后一位进位还是1，需要加到结果集中
+		if i == 0 && carry == 1 {
+			//最后一位进位还是1，需要加到结果集中
 			result = "1" + result
 		}
 	}
