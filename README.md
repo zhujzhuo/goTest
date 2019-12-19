@@ -1,4 +1,28 @@
 /*
+go语言库：
+https://studygolang.com/static/pkgdoc/main.html
+
+ fmt。它实现了格式化的输入输出操作，其中的fmt.Printf()和fmt.Println()是开
+发者使用最为频繁的函数。
+ io。它实现了一系列非平台相关的IO相关接口和实现，比如提供了对os中系统相关的IO
+功能的封装。我们在进行流式读写（比如读写文件）时，通常会用到该包。
+ bufio。它在io的基础上提供了缓存功能。在具备了缓存功能后， bufio可以比较方便地
+提供ReadLine之类的操作。
+ strconv。本包提供字符串与基本数据类型互转的能力。
+ os。本包提供了对操作系统功能的非平台相关访问接口。接口为Unix风格。提供的功能
+包括文件操作、进程管理、信号和用户账号等。
+ sync。它提供了基本的同步原语。在多个goroutine访问共享资源的时候，需要使用sync
+中提供的锁机制。
+ flag。它提供命令行参数的规则定义和传入参数解析的功能。绝大部分的命令行程序都
+需要用到这个包。
+ encoding/json。 JSON目前广泛用做网络程序中的通信格式。本包提供了对JSON的基
+本支持，比如从一个对象序列化为JSON字符串，或者从JSON字符串反序列化出一个具体
+的对象等。
+ http。它是一个强大而易用的包，也是Golang语言是一门“互联网语言”的最好佐证。通
+过http包，只需要数行代码，即可实现一个爬虫或者一个Web服务器，这在传统语言中
+是无法想象的
+
+
 go: database/sql 、go-sql-driver  两个模块的功能，测试并发prepare
 
 python : 并发(https://www.runoob.com/python/python-multithreading.html)
@@ -14,8 +38,6 @@ var v  []int = make([]int, 100)
 p := new(SyncedBuffer)  // type *SyncedBuffer
 p := &v
 函数作为参数传递：test1
-
-
 
 innodb status 
 printslave
