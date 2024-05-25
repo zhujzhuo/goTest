@@ -1,3 +1,4 @@
+/*
 package main
 
 import (
@@ -6,13 +7,7 @@ import (
     "os"
 )
 
-/*
- * Complete the simpleArraySum function below.
- */
 func simpleArraySum(ar []int32) int32 {
-    /*
-     * Write your code here.
-     */
     var sum int32
     n := len(ar)
     for i:=0;i<n;i++{
@@ -43,8 +38,7 @@ func checkError(err error) {
         panic(err)
     }
 }
-
-/*
+*/
 package main
 
 import (
@@ -67,7 +61,6 @@ func simpleArraySum(ar []int32) int32 {
 
 func main() {
     reader := bufio.NewReaderSize(os.Stdin, 1024 * 1024)
-
     stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
     checkError(err)
 
@@ -110,4 +103,3 @@ func checkError(err error) {
         panic(err)
     }
 }
-*/

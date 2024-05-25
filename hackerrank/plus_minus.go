@@ -1,5 +1,4 @@
-
-    ckage main
+package main
 
 import (
     "bufio"
@@ -27,7 +26,6 @@ func plusMinus(arr []int32) {
     fmt.Printf("%f\n",n/num)
     fmt.Printf("%f\n",z/num)
   
-
 }
 
 func main() {
