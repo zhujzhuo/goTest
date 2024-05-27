@@ -56,7 +56,6 @@ v9 int
 v10 string
 )
 
-
 const Pi float64 = 3.14159265358979323846 
 const zero = 0.0   // 无类型浮点常量 
 const (

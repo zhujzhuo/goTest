@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	a := "hello"
+	//a := "hello"
+	var a string = "hello"
 	fmt.Println("Hello World!")
 	fmt.Println(a)
 	var str1 string = "hello"
@@ -24,3 +25,4 @@ func main() {
 		fmt.Println(i)
 	}
 }
+

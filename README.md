@@ -23,6 +23,7 @@ https://studygolang.com/static/pkgdoc/main.html
 是无法想象的
 
 
+
 go: database/sql 、go-sql-driver  两个模块的功能，测试并发prepare
 
 python : 并发(https://www.runoob.com/python/python-multithreading.html)
@@ -138,6 +139,7 @@ func main() {
   fmt.Println(str1+str2)
   fmt.Println(len(str1))
 }
+
 
 //这种不带声明格式的只能在函数体中出现
 //g, h := 123, "hello"

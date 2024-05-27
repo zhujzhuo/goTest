@@ -84,4 +84,7 @@ func main() {
 	fmt.Println(reverse(2147483648))
 	fmt.Println(reverse(-123))
 
+	fmt.Println(reverse(2147483641))
+	fmt.Println(reverse(-2147483649))
+
 }

@@ -28,3 +28,4 @@ func main(){
     c ,_:= mymath.Add(1,2)  //mymath包内函数调用
     fmt.Println(c)
 }
+

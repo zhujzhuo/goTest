@@ -23,7 +23,7 @@ import "fmt"
 func longestCommonPrefix(strs []string) string {
 	//空strs的判断和只有一个子串的数组
 	if len(strs) == 0 {
-		return ""
+		return " "
 	} else if len(strs) == 1 {
 		return strs[0]
 	}

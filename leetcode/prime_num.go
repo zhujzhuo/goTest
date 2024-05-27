@@ -46,7 +46,7 @@ func isPrime(num int) bool {
 
 func main() {
 	num := 0
-	for j := 1; j < 5000; j++ {
+	for j := 1; j < 100; j++ {
 		if isPrime(j) {
 			num++
 			fmt.Println(j, isPrime(j))

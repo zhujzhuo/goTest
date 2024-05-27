@@ -17,4 +17,15 @@ func main() {
 
 	fmt.Println(compute(hypot))    // 5
 	fmt.Println(compute(math.Pow)) //math.Pow(x, y), x的y次方   3*3*3*3=81
+
+
+	var a int = 1234
+	fmt.Println("Hello World!")	
+	fmt.Println(a)
+	var  str1  string ="hello"
+	var  str2  string ="123"
+	fmt.Println(str1+str2)
+	fmt.Println(len(str1))
+	
+
 }
