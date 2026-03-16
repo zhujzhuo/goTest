@@ -38,7 +38,6 @@ a = ar[2:5]
 // b是数组ar的另一个slice
 b = ar[3:5]
 // b的元素是：ar[3]和ar[4]
-
 */
 package main
 
@@ -59,8 +58,8 @@ func main() {
 	fmt.Println()
 	mySlice2 := []int{11, 12, 13}
 	//第二个参数mySlice2后面加了三个点，如果没有这个的话，会有编译错误，因为 append()的语义，从第二个参数起的所有参数都是
-	//待附加的元素。因为mySlice中的元素类型为int，所以直接传递mySlice2 type []int 是行不通的。加上省略号相当于把mySlice2包
-	//含的所有元素打散后传入
+	//待附加的元素。因为mySlice中的元素类型为int，所以直接传递mySlice2 type []int 是行不通的。加上省略号相当于把mySlice2
+	//包含的所有元素打散后传入
 	mySlice = append(mySlice, mySlice2...)
 	mySlice = append(mySlice, 14, 15, 16)
 	for i, v := range mySlice {

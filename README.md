@@ -40,6 +40,8 @@ p := new(SyncedBuffer)  // type *SyncedBuffer
 p := &v
 函数作为参数传递：test1
 
+json的序列化和反序列化 见json2
+
 innodb status 
 printslave
 killer
@@ -56,7 +58,7 @@ godoc 生成的文档质量
 在包中，任何顶级声明前面的注释都将作为该声明的文档注释。 在程序中，每个可导出（首字母大写）的名称都应该有文档注释。
 
 // Compile 用于解析正则表达式并返回，如果成功，则 Regexp 对象就可用于匹配所针对的文本。
-func Compile(str string) (regexp *Regexp, err error) {
+func Compile(str string) (regexp *Regexp, err error) {}
 
 */
 package main

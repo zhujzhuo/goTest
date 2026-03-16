@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-//实现Error()  string  的interface就行
+// 实现Error()  string  的interface就行
 type error interface {
 	Error() string
 }
@@ -38,5 +38,5 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(math.Sqrt(2))
-	fmt.Println(math.Sqrt(-2))
+	fmt.Println(math.Sqrt(-1))
 }

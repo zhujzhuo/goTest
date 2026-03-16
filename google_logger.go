@@ -22,9 +22,9 @@ type MyError struct {
 }
 
 func (e *MyError) Error() string {
-	// return fmt.Sprintf("at %v, %s",
-	// 	e.When, e.What)
-	return fmt.Sprintf("some errors")
+	return fmt.Sprintf("at %v, %s",
+		e.When, e.What)
+	//return fmt.Sprintf("some errors")
 }
 func run() error {
 	return &MyError{

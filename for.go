@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
+
 func sqrt(x float64) string {
 	if x < 0 {
 		return sqrt(-x) + "i"
@@ -18,20 +21,21 @@ func main() {
 
 	sum2 := 1
 	//可以省略1  3 条件
-	for ; sum2 < 1000; {
-                fmt.Println(sum2)
+	for sum2 < 1000 {
+		fmt.Println(sum2)
 		sum2 += sum2
 	}
 	fmt.Println(sum2)
 
-        //C 的 while 在 Go 中叫做 `for`
-        fmt.Println("===========")
-        sum3 :=1
-        for sum3 < 1000 {
-	        fmt.Println(sum3)
+	//C 的 while 在 Go 中叫做 `for`
+	fmt.Println("===========")
+	sum3 := 1
+	for sum3 < 1000 {
+		fmt.Println(sum3)
 		sum3 += sum3
 	}
 	fmt.Println(sum3)
-	fmt.Println(sqrt(2), sqrt(-4))
-	
+	fmt.Println(sqrt(2))
+	fmt.Println(sqrt(-4))
+
 }

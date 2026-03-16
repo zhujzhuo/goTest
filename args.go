@@ -9,17 +9,17 @@ func myfunc(args ...int) {
 	}
 }
 
+func myfunc2(args []int) {
+	for _, arg := range args {
+		fmt.Println(arg)
+	}
+}
+
 type Player struct {
 	Name  string "name"
 	Level int    "level"
 	Exp   int    "exp"
 	Room  int    "room"
-}
-
-func myfunc2(args []int) {
-	for _, arg := range args {
-		fmt.Println(arg)
-	}
 }
 
 // 如果使用.(type)查询类型的变量不是interface{}类型，则在编译时会报错
@@ -37,6 +37,10 @@ func MyPrintf(args ...interface{}) {
 			fmt.Println(arg, "is a string value.")
 		case int64:
 			fmt.Println(arg, "is an int64 value.")
+		case float32:
+			fmt.Println(arg, "is an float32 value.")
+		case [5]int:
+			fmt.Println(arg, "is an [5]int value.")
 		default:
 			fmt.Println(arg, "is an unknown type.")
 		}
@@ -62,15 +66,18 @@ func main() {
 	var v3 string = "hello"
 	var v4 float32 = 1.234
 	var v5 string = "test"
-	MyPrintf(v1, v2, v3, v4)
+	var v6 [5]int
+	MyPrintf(v1, v2, v3, v4, v6)
 	i := []int{1, 2, 3, 4, 5}
 	myfunc(1, 2, 3, 4, 5, 6, 7)
+
 	fmt.Println("=============== print i:")
 	for _, v := range i {
 		fmt.Println(v)
 	}
 	fmt.Println("=============== print i:")
 	myfunc2(i)
+
 	MyPrintf(i)
 	MyPrintf(v5)
 }

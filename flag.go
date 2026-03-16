@@ -1,12 +1,14 @@
 package main
+
 //flag 使用具体说明  https://github.com/astaxie/gopkg/tree/master/flag
 //go run  flag.go  -deltaT 61m,72h,80s
 import (
-  "errors"
-  "flag"
-  "fmt"
-  "strings"
-  "time"
+	"errors"
+	"flag"
+	"fmt"
+	"os"
+	"strings"
+	"time"
 )
 
 type interval []time.Duration
@@ -24,34 +26,44 @@ type Value interface {
 
 */
 
-//实现String接口
+// 实现String接口
 func (i *interval) String() string {
-  return fmt.Sprintf("intervalFlag: %v", *i)
+	return fmt.Sprintf("intervalFlag: %v", *i)
 }
 
-//实现Set接口,Set接口决定了如何解析flag的值
+// 实现Set接口,Set接口决定了如何解析flag的值
 func (i *interval) Set(value string) error {
-  //此处决定命令行是否可以设置多次-deltaT
-  if len(*i) > 0 {
-    return errors.New("interval flag already set")
-  }
-  for _, dt := range strings.Split(value, ",") {
-    duration, err := time.ParseDuration(dt)
-    if err != nil {
-      return err
-    }
-    *i = append(*i, duration)
-  }
-  return nil
+	//此处决定命令行是否可以设置多次-deltaT
+	if len(*i) > 0 {
+		return errors.New("interval flag already set")
+	}
+	for _, dt := range strings.Split(value, ",") {
+		duration, err := time.ParseDuration(dt)
+		if err != nil {
+			return err
+		}
+		*i = append(*i, duration)
+	}
+	return nil
 }
 
 var intervalFlag interval
 
 func init() {
-  flag.Var(&intervalFlag, "deltaT", "comma-separated list of intervals to use between events")
+	flag.Var(&intervalFlag, "deltaT", "comma-separated list of intervals to use between events")
 }
 
 func main() {
-  flag.Parse()
-  fmt.Println(intervalFlag)
+	logPath := flag.String("log-path", "./", "archiver log path")
+	flag.Parse()
+	fmt.Println(intervalFlag)
+
+	fmt.Println(*logPath)
+	err := os.MkdirAll(*logPath, 0755)
+	if err != nil {
+		fmt.Println("Error creating directory:", err)
+		return
+	}
+	fmt.Println("Directory created successfully.")
+
 }

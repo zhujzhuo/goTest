@@ -21,7 +21,7 @@ func split(sum int) (x, y int) {
 
 var c, python, java bool
 
-//i  := 2   这里的赋值编译的时候会报错，函数外不可使用这种赋值语句
+// i  := 2   这里的赋值编译的时候会报错，函数外不可使用这种赋值语句
 var (
 	ToBe   bool       = false
 	MaxInt uint64     = 1<<64 - 1
@@ -40,7 +40,7 @@ func needFloat(x float64) float64 {
 
 func main() {
 	fmt.Println("My favorite number is", rand.Intn(100))
-	fmt.Println("Now you have %f problems.", math.Nextafter(2, 3))
+	fmt.Println("Now you have  problems.", math.Nextafter(2, 3))
 	fmt.Println(math.Pi)
 	fmt.Println(math.MaxUint8)
 	fmt.Println(add(42, 13))

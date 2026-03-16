@@ -20,7 +20,7 @@ var nums chan int = make(chan int, 1)
 var x jieguo = jieguo{go_num: 0}
 
 func main() {
-	list := []string{"/Users/zhujinzhuo/gocode/src", "E:", "F"}
+	list := []string{"/Users/didi/gocode/src", "E:", "F"}
 	for _, i := range list {
 		fmt.Println(i, searchName)
 		go pan(i)

@@ -31,13 +31,13 @@ func main() {
 	}
 
 	array := [...]float64{7.0, 8.5, 9.1, 1.1, 2.2, 3.3}
-	x := Sum(&array) // 注意显式的取址操作
+	x := Sum(&array) // 注意显式的取址操作     sum定义必须是显示传参长度为6的数组
 	fmt.Println(x)
 
 	aslice := array[2:5]
 	bslice := aslice
 
-	bslice[1] = 5.5
+	bslice[1] = 5.5 // aslice  bslice 都会变
 	for _, i := range aslice {
 		fmt.Println(i)
 	}
@@ -83,6 +83,8 @@ func main() {
 	var aint int = 8
 	fmt.Println(float64(aint))
 
+	//有序数据合并，先做数据合并，再去排序
+	//数据合并
 	var nums1 []int = []int{1, 2, 3, 0, 0, 0, 0}
 	var nums2 []int = []int{2, 3, 4, 5}
 	m, n := 3, 4
@@ -91,7 +93,7 @@ func main() {
 		j++
 	}
 	fmt.Println(nums1) //[1 2 3 2 3 4 5]
-	//排序nums1
+
 	var str string = "12321"
 	var count int = 3
 	fmt.Println(string(str[1]) + "3")           //23

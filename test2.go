@@ -16,8 +16,14 @@ func main() {
 	var str2 string = "123"
 	fmt.Println(str1 + str2)
 	fmt.Println(len(str1))
+
 	fmt.Println(runtime.GOARCH)
+	fmt.Println(strings.ToUpper(runtime.GOOS))
+
 	fmt.Println(os.Getenv("ETCDCOV_ARGS"))
+	fmt.Println(os.Getenv("PATH"))
+	fmt.Println(os.Getenv("LANG"))
+
 	val := "test,for,a,te if not,print"
 	//val := "if not print"
 	v := strings.Split(val, ",")
@@ -25,4 +31,3 @@ func main() {
 		fmt.Println(i)
 	}
 }
-
