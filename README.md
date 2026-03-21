@@ -2,6 +2,7 @@
 go语言库：
 https://studygolang.com/static/pkgdoc/main.html
 
+
  fmt。它实现了格式化的输入输出操作，其中的fmt.Printf()和fmt.Println()是开
 发者使用最为频繁的函数。
  io。它实现了一系列非平台相关的IO相关接口和实现，比如提供了对os中系统相关的IO
