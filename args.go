@@ -15,13 +15,6 @@ func myfunc2(args []int) {
 	}
 }
 
-type Player struct {
-	Name  string "name"
-	Level int    "level"
-	Exp   int    "exp"
-	Room  int    "room"
-}
-
 // 如果使用.(type)查询类型的变量不是interface{}类型，则在编译时会报错
 // cannot type switch on non-interface value a (type string)
 // 如果在switch以外地方使用.(type)，则在编译时会提示如下错误：
