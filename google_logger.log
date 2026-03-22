@@ -1,0 +1,2 @@
+INFO : 2026/03/22 21:19:50 I'm about to do something!
+ERROR: 2026/03/22 21:19:50 Error running doSomething: at 2026-03-22 21:19:50.633834 +0800 CST m=+0.000942026, it didn't work

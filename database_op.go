@@ -25,9 +25,7 @@ func main() {
 	go func() {
 		http.ListenAndServe("localhost:8888", nil)
 	}()
-	//db,err = sql.Open("mysql", "testomega_rw:TestOmegaRW@0612@tcp(10.94.97.147:4001)/db_omega_web?charset=utf8&collation=utf8_general_ci")
-	db, err = sql.Open("mysql", "qishao:qishaotest@tcp(qishao.c6slmrzd0jdl.rds.cn-north-1.amazonaws.com.cn:3306)/test?charset=utf8&collation=utf8_general_ci")
-	//db,err = sql.Open("mysql", "user1:password1@tcp(10.94.99.67:3306)/db_omega_web?charset=utf8&collation=utf8_general_ci")
+	db, err = sql.Open("mysql", "user1:password1@tcp(10.94.99.67:3306)/db_omega_web?charset=utf8&collation=utf8_general_ci")
 	db.SetMaxOpenConns(2)
 	db.SetMaxIdleConns(2)
 	if err != nil {
